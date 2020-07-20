@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 
@@ -7,6 +8,9 @@ const app = express();
 
 //habilita o POST usando JSON
 app.use(express.json());
+
+//habilita o cors
+app.use(cors()); //libera url acesso publico
 
 //iniciando o DB
 mongoose.connect('mongodb://localhost:27017/nodeapi',{ useNewUrlParser: true, useUnifiedTopology: true} );
